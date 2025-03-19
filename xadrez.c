@@ -2,9 +2,9 @@
 
     int main() {
         
-        int bispo = 1, rainha = 1;
+        int bispo = 1, rainha = 1, cavalo = 0;
 
-// TORRE
+// TORRE -----------------------------------------
     printf("\nMovimentação da TORRE:\n");
 
     for (int torre = 0; torre < 5; torre++)
@@ -12,7 +12,7 @@
         printf("Direita\n");
     }
 
-// BISPO
+// BISPO -----------------------------------------
     printf("\nMovimentação do BISPO:\n");
 
     do 
@@ -27,7 +27,7 @@
         bispo++;
     } while (bispo <= 10);
 
-// RAINHA
+// RAINHA -----------------------------------------
     printf("\nMovimentação da RAINHA:\n");
 
     while (rainha <= 8)
@@ -36,6 +36,20 @@
         rainha++;
     }
     
+// CAVALO -----------------------------------------
+    printf("\nMovimentação do CAVALO:\n");
+
+    do
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            printf("Baixo\n");
+        }
+        printf("Esquerda\n");
+
+    } while (cavalo--);
+    
+//  -----------------------------------------
 
         return 0;
 }
