@@ -1,55 +1,67 @@
 #include <stdio.h>
 
+void movTorre(int n)    // bloco da movimentação torre
+{
+    if (n > 0)
+    {
+        printf("Direita\n");   // imprime "direita" n vezes ate n = 0
+        movTorre(n - 1);
+    }
+}
+
+void movBispo(int n)   // bloco da movimentação bispo
+{
+    if (n > 0)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            printf("Cima\n");       // imprime "cima" e "direita" alternadamente, n vezes até n = 0. nesse caso 5 vezes
+            printf("Direita\n");     // eu tentei muuuito, mas nao consegui sair do loop aninhando "for".
+       
+        }
+       movBispo(n - 1);
+    }
+}
+
+void movRainha(int n)  // bloco da movimentação rainha
+{
+    if (n > 0)
+    {
+        printf("Esquerda\n"); // imprime "esquerda" até que n se torne 0, nesse caso 8 vezes
+        movRainha(n - 1);
+    } 
+}
+
     int main() {
         
-        int bispo = 1, rainha = 1, cavalo = 0;
+       int cavalo = 1; // unica variavel declarada, unica peça sem o void
 
-// TORRE -----------------------------------------
+
     printf("\nMovimentação da TORRE:\n");
 
-    for (int torre = 0; torre < 5; torre++)
-    {
-        printf("Direita\n");
-    }
+    movTorre(5); // chama o void
 
-// BISPO -----------------------------------------
     printf("\nMovimentação do BISPO:\n");
 
-    do 
-    {
-        if (bispo % 2 == 0)
-        {
-            printf("Cima\n");
-        } else if (bispo % 2 != 0)
-        {
-            printf("Direita\n");
-        }
-        bispo++;
-    } while (bispo <= 10);
+    movBispo(5); // chama o void
 
-// RAINHA -----------------------------------------
     printf("\nMovimentação da RAINHA:\n");
 
-    while (rainha <= 8)
-    {
-        printf("Esquerda\n");
-        rainha++;
-    }
+    movRainha(8); // chama o void
     
 // CAVALO -----------------------------------------
     printf("\nMovimentação do CAVALO:\n");
 
     do
     {
-        for (int i = 0; i < 2; i++)
+        printf("Direita\n");
+        for (int i = 0; i < 2; i++)  // vai imprimir o "direita" 2 vezes (ate i = 2)
         {
-            printf("Baixo\n");
+            printf("Cima\n"); //vai imprimir "cima" uma vez só, equanto cavalo vai de 1 (declarado na variavel) até 0 (declarado na condição do while)
         }
-        printf("Esquerda\n");
+    } while (--cavalo);
+       
 
-    } while (cavalo--);
-    
-//  -----------------------------------------
-
-        return 0;
+    return 0;
 }
+
